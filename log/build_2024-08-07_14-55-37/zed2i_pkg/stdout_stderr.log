@@ -1,0 +1,18 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running egg_info
+writing zed2i_pkg.egg-info/PKG-INFO
+writing dependency_links to zed2i_pkg.egg-info/dependency_links.txt
+writing entry points to zed2i_pkg.egg-info/entry_points.txt
+writing requirements to zed2i_pkg.egg-info/requires.txt
+writing top-level names to zed2i_pkg.egg-info/top_level.txt
+reading manifest file 'zed2i_pkg.egg-info/SOURCES.txt'
+writing manifest file 'zed2i_pkg.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/osama/mbs_ws/install/zed2i_pkg/lib/python3.10/site-packages/zed2i-pkg.egg-link (link to .)
+Installing my_node script to /home/osama/mbs_ws/install/zed2i_pkg/lib/zed2i_pkg
+Installing zed2ii_node script to /home/osama/mbs_ws/install/zed2i_pkg/lib/zed2i_pkg
+
+Installed /home/osama/mbs_ws/build/zed2i_pkg
+running symlink_data

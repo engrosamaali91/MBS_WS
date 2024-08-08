@@ -1,0 +1,20 @@
+[0.781s] Invoking command in '/home/osama/mbs_ws/build/zed2i_pkg': PYTHONPATH=/home/osama/mbs_ws/build/zed2i_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/osama/mbs_ws/install/zed2i_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/osama/mbs_ws/build/zed2i_pkg/build --no-deps symlink_data
+[1.079s] running develop
+[1.079s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.079s]   warnings.warn(
+[1.299s] running egg_info
+[1.299s] writing zed2i_pkg.egg-info/PKG-INFO
+[1.299s] writing dependency_links to zed2i_pkg.egg-info/dependency_links.txt
+[1.299s] writing entry points to zed2i_pkg.egg-info/entry_points.txt
+[1.300s] writing requirements to zed2i_pkg.egg-info/requires.txt
+[1.300s] writing top-level names to zed2i_pkg.egg-info/top_level.txt
+[1.302s] reading manifest file 'zed2i_pkg.egg-info/SOURCES.txt'
+[1.303s] writing manifest file 'zed2i_pkg.egg-info/SOURCES.txt'
+[1.352s] running build_ext
+[1.352s] Creating /home/osama/mbs_ws/install/zed2i_pkg/lib/python3.10/site-packages/zed2i-pkg.egg-link (link to .)
+[1.353s] Installing my_node script to /home/osama/mbs_ws/install/zed2i_pkg/lib/zed2i_pkg
+[1.353s] Installing zed2ii_node script to /home/osama/mbs_ws/install/zed2i_pkg/lib/zed2i_pkg
+[1.354s] 
+[1.354s] Installed /home/osama/mbs_ws/build/zed2i_pkg
+[1.354s] running symlink_data
+[1.385s] Invoked command in '/home/osama/mbs_ws/build/zed2i_pkg' returned '0': PYTHONPATH=/home/osama/mbs_ws/build/zed2i_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/osama/mbs_ws/install/zed2i_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/osama/mbs_ws/build/zed2i_pkg/build --no-deps symlink_data

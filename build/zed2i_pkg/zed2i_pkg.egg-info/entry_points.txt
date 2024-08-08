@@ -1,0 +1,4 @@
+[console_scripts]
+my_node = zed2i_pkg.my_node:main
+zed2ii_node = zed2i_pkg.zed2ii_node:main
+

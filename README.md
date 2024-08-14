@@ -19,7 +19,11 @@ Step 5: Run zed node to evoke the nodes and topics
 ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zed2i
 ```
 
-Step 6:
+Step 6: Open a new terminal and run this package to detect the objects and publish the bounding boxes
+```
+ros2 run zed_yolov8_detector yolo_node
+```
+Step 7: this package will calcualte depth and pose of the detected objet
 ```
 ros2 run zed2i_pkg zed2ii_node
 ```

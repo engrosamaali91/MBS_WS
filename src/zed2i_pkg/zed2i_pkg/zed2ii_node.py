@@ -10,10 +10,8 @@ import numpy as np
 from cv_bridge import CvBridge
 import tf2_ros
 import tf2_geometry_msgs 
-# import tf2_geometry_msgs.tf2_geometry_msgs as tf2_geometry_msgs
 
-
-
+from std_msgs.msg import Float32MultiArray
 
 class ZED2iSubscriber(Node):
     def __init__(self):
@@ -23,6 +21,8 @@ class ZED2iSubscriber(Node):
 
         self.camera_info_sub = Subscriber(self, CameraInfo, '/zed/zed_node/depth/camera_info')
         self.depth_image_sub = Subscriber(self, Image, '/zed/zed_node/depth/depth_registered')
+        self.bounding_box_sub = self.create_subscription(Float32MultiArray, '/ultralytics/detection/bounding_boxes', self.bounding_box_callback, 10)
+        self.latest_bounding_box = None
 
         #synchornize the camera info and depth image
         self.sync = ApproximateTimeSynchronizer([self.camera_info_sub, self.depth_image_sub], queue_size=10, slop=0.1)
@@ -33,7 +33,17 @@ class ZED2iSubscriber(Node):
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
+
+    def bounding_box_callback(self, msg):   
+        if msg.data:
+            self.latest_bounding_box = (int(msg.data[0]), int(msg.data[1]), int(msg.data[2]), int(msg.data[3]))
+        else:
+            self.get_logger().warn("Received bounding box with invalid data length")
+
     def synced_callback(self, camera_info_msg, depth_msg):
+        if self.latest_bounding_box is None:
+            self.get_logger().warn("No bounding box received yet")
+            return
         # self.get_logger().info(f'Received camera info: {camera_info_msg} and depth image: {depth_image_msg}')
         camera_matrix = self.get_camera_matrix(camera_info_msg)
         # print(camera_matrix)
@@ -47,8 +57,11 @@ class ZED2iSubscriber(Node):
         # depth_image = depth_image / 1000.0 # convert depth values from mm to meters
         #the shape of depth image is 720x1280
         #define the point you want to convert (e.g. the center of the image)
-        height, width = depth_image.shape
-        midpoint = (width//2, height//2)
+        # height, width = depth_image.shape
+        bbox_top_left = (self.latest_bounding_box[0], self.latest_bounding_box[1])
+        bbox_bottom_right = (self.latest_bounding_box[2], self.latest_bounding_box[3])
+        midpoint = ((bbox_top_left[0] + bbox_bottom_right[0])//2, (bbox_top_left[1] + bbox_bottom_right[1])//2)
+        # midpoint = (width//2, height//2)
         # print(midpoint)
 
         # depth_array = np.array(depth_image, dtype=np.float32)

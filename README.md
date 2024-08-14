@@ -1,4 +1,6 @@
 # MBS_WS
+![Object detection with respect to zed2i camera fram](assets/demo.gif)
+
 Step 1
 [Install zed sdk in your system](https://www.stereolabs.com/docs/installation/linux) and then [ros2 humble](https://docs.ros.org/en/humble/Installation.html)
 Step 2: clone this repository
